@@ -1,0 +1,30 @@
+def find_simple_digit(x):
+    i = 2
+    if x == 2:
+        return i
+
+    while i * i <= x:
+        if x % i == 0:
+            return False
+        i += 1
+    return True
+
+
+def summa(x):
+    if x == 2:
+        return 0
+
+    ans = 0
+    for i in range(2, x):
+        if find_simple_digit(i):
+            ans += i
+
+    return ans
+
+
+new_input = int(input('Введите число: '))
+if new_input <= 1:
+    raise ValueError('Простое число не может быть меньше или равно единице')
+print(f'Сумма простых чисел, не превышающих {new_input} = {summa(new_input)}')
+
+
